@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/airmaxx/static/css/main.24ceecb0.css",
+    "main.css": "/airmaxx/static/css/main.458ee8f8.css",
     "main.js": "/airmaxx/static/js/main.1b08398c.js",
     "index.html": "/airmaxx/index.html",
-    "main.24ceecb0.css.map": "/airmaxx/static/css/main.24ceecb0.css.map",
+    "main.458ee8f8.css.map": "/airmaxx/static/css/main.458ee8f8.css.map",
     "main.1b08398c.js.map": "/airmaxx/static/js/main.1b08398c.js.map"
   },
   "entrypoints": [
-    "static/css/main.24ceecb0.css",
+    "static/css/main.458ee8f8.css",
     "static/js/main.1b08398c.js"
   ]
 }
