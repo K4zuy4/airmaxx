@@ -3,7 +3,7 @@ const menu = document.querySelector('.menu');
 const year = document.getElementById('year');
 
 if (year) {
-  year.textContent = new Date().getFullYear();
+  year.textContent = String(new Date().getFullYear());
 }
 
 if (menuButton && menu) {
@@ -18,5 +18,12 @@ if (menuButton && menu) {
       menuButton.setAttribute('aria-expanded', 'false');
       menu.classList.remove('open');
     });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+    }
   });
 }
