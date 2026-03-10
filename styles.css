@@ -267,7 +267,7 @@ h2 { font-size: clamp(1.5rem, 2.5vw, 2.3rem); }
 [data-animate] {
   opacity: 0;
   transform: translateY(26px) scale(.98);
-  transition: opacity .65s ease, transform .65s cubic-bezier(.2,.65,.2,1);
+  transition: opacity .5s ease, transform .5s cubic-bezier(.2,.65,.2,1);
 }
 [data-animate].in-view {
   opacity: 1;

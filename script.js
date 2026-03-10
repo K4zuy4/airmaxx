@@ -2,7 +2,7 @@ const menuButton = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 const year = document.getElementById('year');
 const animatedElements = document.querySelectorAll(
-  '.hero > .container > *, .section-head, .card, .gallery-item, .steps li, .review-card, .cta-box, .site-footer'
+  '.hero-grid, main .section > .container, .site-footer .footer-inner'
 );
 const heroVisual = document.querySelector('.hero-visual');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -33,9 +33,8 @@ if (menuButton && menu) {
   });
 }
 
-animatedElements.forEach((element, index) => {
+animatedElements.forEach((element) => {
   element.setAttribute('data-animate', '');
-  element.style.transitionDelay = `${Math.min(index * 45, 320)}ms`;
 });
 
 if (!prefersReducedMotion && 'IntersectionObserver' in window) {
@@ -48,7 +47,7 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
         }
       });
     },
-    { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
+    { threshold: 0.08, rootMargin: '0px 0px -15% 0px' }
   );
 
   animatedElements.forEach((element) => revealObserver.observe(element));
