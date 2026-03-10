@@ -47,10 +47,31 @@ if (!prefersReducedMotion && 'IntersectionObserver' in window) {
         }
       });
     },
-    { threshold: 0.08, rootMargin: '0px 0px -15% 0px' }
+    { threshold: 0.05, rootMargin: '0px 0px -5% 0px' }
   );
 
+  const revealRemainingAtPageEnd = () => {
+    const reachedPageEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+    if (!reachedPageEnd) {
+      return;
+    }
+
+    animatedElements.forEach((element) => {
+      if (!element.classList.contains('in-view')) {
+        element.classList.add('in-view');
+        revealObserver.unobserve(element);
+      }
+    });
+
+    window.removeEventListener('scroll', revealRemainingAtPageEnd);
+    window.removeEventListener('resize', revealRemainingAtPageEnd);
+  };
+
   animatedElements.forEach((element) => revealObserver.observe(element));
+  revealRemainingAtPageEnd();
+  window.addEventListener('scroll', revealRemainingAtPageEnd, { passive: true });
+  window.addEventListener('resize', revealRemainingAtPageEnd);
 } else {
   animatedElements.forEach((element) => element.classList.add('in-view'));
 }
