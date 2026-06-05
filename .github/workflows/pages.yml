@@ -33,24 +33,10 @@ jobs:
           test -f script.js
           test -f CNAME
 
-      - name: Create Pages artifact
-        run: |
-          tar \
-            --dereference \
-            --hard-dereference \
-            --directory "$GITHUB_WORKSPACE" \
-            --exclude=.git \
-            --exclude=.github \
-            --exclude=work \
-            -czf "$RUNNER_TEMP/github-pages.tar.gz" \
-            .
-
       - name: Upload Pages artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-pages-artifact@v5
         with:
-          name: github-pages
-          path: ${{ runner.temp }}/github-pages.tar.gz
-          if-no-files-found: error
+          path: .
           retention-days: 1
 
   deploy:
