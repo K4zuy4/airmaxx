@@ -1,0 +1,66 @@
+name: Deploy static site to Pages
+
+on:
+  push:
+    branches:
+      - gh-pages
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    name: Build static artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate static site files
+        run: |
+          test -f index.html
+          test -f styles.css
+          test -f script.js
+          test -f CNAME
+
+      - name: Create Pages artifact
+        run: |
+          tar \
+            --dereference \
+            --hard-dereference \
+            --directory "$GITHUB_WORKSPACE" \
+            --exclude=.git \
+            --exclude=.github \
+            --exclude=work \
+            -czf "$RUNNER_TEMP/github-pages.tar.gz" \
+            .
+
+      - name: Upload Pages artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/github-pages.tar.gz
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
