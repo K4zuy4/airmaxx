@@ -7,6 +7,11 @@
       name="description"
       content="Airmaxx Kassel – Professionelle Drohnenaufnahmen für Immobilien, Events und Social Media in Hessen."
     />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' https://images.unsplash.com https://mms.immowelt.de data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; form-action https://formspree.io; upgrade-insecure-requests"
+    />
     <title>Airmaxx Kassel | Professionelle Drohnenaufnahmen</title>
     <link rel="icon" type="image/png" href="logo200.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -102,6 +107,7 @@
                 src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDF8fEV2ZW50fGVufDB8fHx8MTcyNDE1Mzg5MHww&ixlib=rb-4.0.3&w=1400"
                 alt="Aufnahme eines Events"
                 loading="lazy"
+                referrerpolicy="no-referrer"
               />
               <figcaption>Events</figcaption>
             </figure>
@@ -110,6 +116,7 @@
                 src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDJ8fHdlZGRpbmd8ZW58MHx8fHwxNzI0MTUyODc3fDA&ixlib=rb-4.0.3&w=1400"
                 alt="Aufnahmen von Hochzeiten"
                 loading="lazy"
+                referrerpolicy="no-referrer"
               />
               <figcaption>Hochzeiten</figcaption>
             </figure>
@@ -118,6 +125,7 @@
                 src="https://images.unsplash.com/photo-1617719463247-2a722ace43c3?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEzfHxkcm9uZXNob3RzfGVufDB8fHx8MTcyNDE1MjkxMXww&ixlib=rb-4.0.3&w=1400"
                 alt="Landschaftsaufnahme aus der Luft"
                 loading="lazy"
+                referrerpolicy="no-referrer"
               />
               <figcaption>Luftbilder</figcaption>
             </figure>
@@ -126,6 +134,7 @@
                 src="https://mms.immowelt.de/5/a/f/3/5af36094-4c58-4844-a7cd-1b798a391fdc.jpg?ci_seal=b9aabfa8aafa8571a647fd269e33eca4e2cdab4e&w=1920&func=fit&bg_color=000&org_if_sml=1"
                 alt="Immobilienaufnahme"
                 loading="lazy"
+                referrerpolicy="no-referrer"
               />
               <figcaption>Immobilienaufnahmen</figcaption>
             </figure>
@@ -197,22 +206,22 @@
             <p>Zögere nicht, mich zu kontaktieren – ich melde mich schnellstmöglich zurück.</p>
             <ul class="contact-list">
               <li><strong>E-Mail:</strong> <a href="mailto:airmaxx-ks@outlook.de">airmaxx-ks@outlook.de</a></li>
-              <li><strong>Instagram:</strong> <a href="https://instagram.com/airmaxx.ks">@airmaxx.ks</a></li>
+              <li><strong>Instagram:</strong> <a href="https://instagram.com/airmaxx.ks" rel="noopener noreferrer">@airmaxx.ks</a></li>
               <li><strong>Standort:</strong> 34130 Kassel, Hessen</li>
             </ul>
           </div>
           <form class="contact-form" action="https://formspree.io/f/xrbzadaa" method="POST">
             <label>
               Name
-              <input type="text" name="name" autocomplete="name" required />
+              <input type="text" name="name" autocomplete="name" maxlength="80" required />
             </label>
             <label>
               E-Mail
-              <input type="email" name="email" autocomplete="email" required />
+              <input type="email" name="email" autocomplete="email" maxlength="120" required />
             </label>
             <label>
               Nachricht
-              <textarea name="message" rows="4" required></textarea>
+              <textarea name="message" rows="4" maxlength="2000" required></textarea>
             </label>
             <button class="btn" type="submit">Anfrage senden</button>
           </form>
@@ -226,8 +235,8 @@
         <div class="footer-links">
           <a href="#home">Home</a>
           <a href="#contact">Contact Us</a>
-          <a href="https://www.termsfeed.com/live/25bac511-e272-48cd-89b2-ab068153a56f">Terms and Conditions</a>
-          <a href="https://www.termsfeed.com/live/36c13368-4a55-4df8-979f-900f0a8739d5">Privacy Policy</a>
+          <a href="https://www.termsfeed.com/live/25bac511-e272-48cd-89b2-ab068153a56f" rel="noopener noreferrer">Terms and Conditions</a>
+          <a href="https://www.termsfeed.com/live/36c13368-4a55-4df8-979f-900f0a8739d5" rel="noopener noreferrer">Privacy Policy</a>
         </div>
       </div>
     </footer>
